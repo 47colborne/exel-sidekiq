@@ -1,4 +1,5 @@
 require 'sidekiq'
+require_relative 'execution_worker'
 
 module EXEL
   module Sidekiq
@@ -10,7 +11,7 @@ module EXEL
       def do_async(block)
         @context[:_block] = block
 
-        push_args = {'class' => ExecutionWorker, 'args' => [@context.serialize]}
+        push_args = {'class' => EXEL::Sidekiq::ExecutionWorker, 'args' => [@context.serialize]}
         push_args['queue'] = @context[:queue] if @context[:queue]
         push_args['retry'] = @context[:retry] if @context[:retry]
 
