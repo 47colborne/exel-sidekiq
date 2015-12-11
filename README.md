@@ -1,6 +1,6 @@
-# Exel::Sidekiq
+# EXEL::Sidekiq
 
-TODO: Write a gem description
+This gem adds Sidekiq support for EXEL's async command.
 
 ## Installation
 
@@ -18,7 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+If you wish to use a queue other than default, you may specify it's name in the options passed to `async`. The retry limit
+can also be set, as in the following example:
+
+    async queue: :my_queue, retry: 3 do
+        process with: MyProcessor
+    end
 
 ## Contributing
 
