@@ -1,6 +1,6 @@
 # EXEL::Sidekiq
 
-This gem adds Sidekiq support for EXEL's async command.
+This gem adds Sidekiq support for [EXEL's](https://github.com/47colborne/exel) async command.
 
 ## Installation
 
