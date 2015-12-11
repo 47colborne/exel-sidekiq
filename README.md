@@ -18,8 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-If you wish to use a queue other than default, you may specify it's name in the options passed to `async`. The retry limit
-can also be set, as in the following example:
+By requiring this gem, Sidekiq support will automatically be added to [EXEL](https://github.com/47colborne/exel). Any calls to `async` will enqueue a worker to run the given block. If you wish to use a queue other than default, you may specify its name in the options passed to `async`. The retry limit can also be set, as in the following example:
 
     async queue: :my_queue, retry: 3 do
         process with: MyProcessor
