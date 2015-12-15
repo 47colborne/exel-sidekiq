@@ -21,14 +21,16 @@ module EXEL
           let(:context) { EXEL::Context.new(queue: 'import_processor') }
 
           it 'pushes the execution worker to the given queue' do
-            expect(::Sidekiq::Client).to receive(:push).with('queue' => context[:queue], 'class' => ExecutionWorker, 'args' => [serialized_context_uri])
+            expect(::Sidekiq::Client).to receive(:push).with(
+              'queue' => context[:queue], 'class' => ExecutionWorker, 'args' => [serialized_context_uri])
             provider.do_async(callback)
           end
         end
 
         context 'without queue name' do
           it 'pushes the execution worker to the default queue' do
-            expect(::Sidekiq::Client).to receive(:push).with('class' => ExecutionWorker, 'args' => [serialized_context_uri])
+            expect(::Sidekiq::Client).to receive(:push).with(
+              'class' => ExecutionWorker, 'args' => [serialized_context_uri])
             provider.do_async(callback)
           end
         end
@@ -37,14 +39,16 @@ module EXEL
           let(:context) { EXEL::Context.new(retry: 1) }
 
           it 'pushes the execution worker with a specified number of retries' do
-            expect(::Sidekiq::Client).to receive(:push).with('retry' => context[:retry], 'class' => ExecutionWorker, 'args' => [serialized_context_uri])
+            expect(::Sidekiq::Client).to receive(:push).with(
+              'retry' => context[:retry], 'class' => ExecutionWorker, 'args' => [serialized_context_uri])
             provider.do_async(callback)
           end
         end
 
         context 'with no retries specified' do
           it 'pushes the execution worker with no specified number of retries' do
-            expect(::Sidekiq::Client).to receive(:push).with('class' => ExecutionWorker, 'args' => [serialized_context_uri])
+            expect(::Sidekiq::Client).to receive(:push).with(
+              'class' => ExecutionWorker, 'args' => [serialized_context_uri])
             provider.do_async(callback)
           end
         end
