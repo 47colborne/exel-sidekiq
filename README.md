@@ -1,5 +1,6 @@
 # EXEL::Sidekiq
 
+[![Gem Version](https://badge.fury.io/rb/exel-sidekiq.svg)](https://badge.fury.io/rb/exel-sidekiq)
 [![Build Status](https://snap-ci.com/47colborne/exel-sidekiq/branch/master/build_image)](https://snap-ci.com/47colborne/exel-sidekiq/branch/master)
 
 This gem adds Sidekiq support for [EXEL's](https://github.com/47colborne/exel) async command.
