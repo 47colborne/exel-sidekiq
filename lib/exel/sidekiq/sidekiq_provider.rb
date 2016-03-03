@@ -11,7 +11,10 @@ module EXEL
       def do_async(block)
         @context[:_block] = block
 
-        push_args = {'class' => EXEL::Sidekiq::ExecutionWorker, 'args' => [@context.serialize]}
+        worker_args = [@context.serialize, @context[:async_label]].compact
+
+        # noinspection RubyStringKeysInHashInspection
+        push_args = {'class' => EXEL::Sidekiq::ExecutionWorker, 'args' => worker_args}
         push_args['queue'] = @context[:queue] if @context[:queue]
         push_args['retry'] = @context[:retry] if @context[:retry]
 
