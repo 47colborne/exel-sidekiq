@@ -27,6 +27,8 @@ By requiring this gem, Sidekiq support will automatically be added to [EXEL](htt
         process with: MyProcessor
     end
 
+You can optionally provide a string in ```context[:async_label]``` which will be passed to the Sidekiq worker. This is intended to be a human readable label that will be visible on the Sidekiq admin pages to assist in debugging and monitoring your jobs.
+
 ## Contributing
 
 1. Fork it ( https://github.com/47colborne/exel-sidekiq )
