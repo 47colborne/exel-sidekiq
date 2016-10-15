@@ -9,7 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['yroo']
   spec.email         = ['dev@yroo.com']
   spec.summary       = 'Async provider for EXEL using Sidekiq'
-  spec.description   = 'When used with EXEL (https://github.com/47colborne/exel), the async command will launch a Sidekiq worker'
+  spec.description   = 'When used with EXEL (https://github.com/47colborne/exel), the async command will launch a '\
+                       'Sidekiq worker'
   spec.homepage      = 'https://github.com/47colborne/exel-sidekiq'
   spec.license       = 'MIT'
 
@@ -30,6 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'terminal-notifier', '~> 1'
   spec.add_development_dependency 'terminal-notifier-guard', '~> 1'
   spec.add_development_dependency 'rubocop', '~> 0'
-  spec.add_development_dependency 'rubocop-rspec', '~> 1'
   spec.add_development_dependency 'rubocop-rspec-focused', '~> 0'
 end

@@ -9,6 +9,7 @@ module EXEL
       describe '#do_async' do
         before do
           allow(context).to receive(:serialize).and_return(serialized_context_uri)
+          allow(context).to receive(:[]=)
         end
 
         it 'adds the callback to the context before serializing it' do
